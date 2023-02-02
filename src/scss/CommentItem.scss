@@ -1,0 +1,16 @@
+.content {
+  background-color: #ffe09b;
+  font-size: 1.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: #222;
+
+  .comment-content,
+  .autor {
+    font-weight: 600;
+    font-size: 1.6rem;
+  }
+}
