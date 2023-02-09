@@ -1,8 +1,7 @@
 import "../scss/CommentItem.scss";
-import React from "react";
 import { observer } from "mobx-react";
 
-const CommentItem = ({ comment }) => {
+function CommentItem({ comment }) {
   return (
     <div className="comment-item">
       <p className="content">
@@ -14,6 +13,6 @@ const CommentItem = ({ comment }) => {
       </p>
     </div>
   );
-};
+}
 
 export default observer(CommentItem);

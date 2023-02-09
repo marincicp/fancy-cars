@@ -1,9 +1,8 @@
 import "../scss/CarItem.scss";
-import React from "react";
 import store from "../store";
 import { observer } from "mobx-react";
 
-const CarItem = ({ car }) => {
+function CarItem({ car }) {
   return (
     <div
       className={`car-item ${car.id === store.selectedCar.id ? "active" : ""}`}
@@ -23,6 +22,6 @@ const CarItem = ({ car }) => {
       </div>
     </div>
   );
-};
+}
 
 export default observer(CarItem);

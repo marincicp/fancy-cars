@@ -1,10 +1,10 @@
 import "../scss/CarDetail.scss";
-import React, { useState } from "react";
+import { useState } from "react";
 import { observer } from "mobx-react";
 import store from "../store";
 import CommentItem from "./CommentItem";
 
-const CarDetail = () => {
+function CarDetail() {
   const [autor, setAutor] = useState("");
   const [commentContent, setCommentContent] = useState("");
   let car = store.selectedCar;
@@ -121,6 +121,6 @@ const CarDetail = () => {
       </div>
     </div>
   );
-};
+}
 
 export default observer(CarDetail);

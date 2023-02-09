@@ -1,10 +1,9 @@
 import "../scss/SearchResults.scss";
-import React from "react";
 import store from "../store";
 import { observer } from "mobx-react";
 import CarItem from "./CarItem";
 
-const SearchResults = () => {
+function SearchResults() {
   let carData = [];
 
   carData = store.renderCars();
@@ -48,6 +47,6 @@ const SearchResults = () => {
       </div>
     </div>
   );
-};
+}
 
 export default observer(SearchResults);

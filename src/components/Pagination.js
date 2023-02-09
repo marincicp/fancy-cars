@@ -1,10 +1,9 @@
 import { observer } from "mobx-react";
-import React from "react";
 import store from "../store";
 import Button from "./Button";
 import "../scss/Pagination.scss";
 
-const Pagination = () => {
+function Pagination() {
   let curPage = store.page;
   let maxPage = Math.ceil(store.carsData.length / store.resPerPage);
 
@@ -52,6 +51,6 @@ const Pagination = () => {
   }
 
   return <div className="pagination">{renderPagination()}</div>;
-};
+}
 
 export default observer(Pagination);

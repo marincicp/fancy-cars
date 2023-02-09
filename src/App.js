@@ -1,6 +1,4 @@
 import "../src/scss/App.scss";
-import React from "react";
-
 import { observer } from "mobx-react";
 
 import SearchResults from "./components/SearchResults";
@@ -8,7 +6,7 @@ import SearchBar from "../src/components/SearchBar";
 import CarDetail from "../src/components/CarDetail";
 import Pagination from "../src/components/Pagination";
 
-const App = () => {
+function App() {
   return (
     <div className="grid">
       <div className="top">
@@ -34,6 +32,6 @@ const App = () => {
       </div>
     </div>
   );
-};
+}
 
 export default observer(App);

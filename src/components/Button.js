@@ -1,10 +1,9 @@
 import "../scss/Button.scss";
-import React from "react";
 import { observer } from "mobx-react";
 
 import store from "../store";
 
-const Button = ({ text, onChangePage, float }) => {
+function Button({ text, onChangePage, float }) {
   const onHandleClick = () => {
     onChangePage();
   };
@@ -33,6 +32,6 @@ const Button = ({ text, onChangePage, float }) => {
       )}
     </button>
   );
-};
+}
 
 export default observer(Button);
