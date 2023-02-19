@@ -4,6 +4,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 LIVE: https://petar-marincic-fancy-car.netlify.app/
 
+
+-More about project 
+This project is a web application about cars created with React that allows users to search, sort, and comment on cars. Additionally, I have implemented pagination to make it easy for users to navigate through search results. For state management, I have used the MobX library, and for the database, I have used a mock API, which is great for practicing CRUD operations.
+
+
+
 ## Available Scripts
 
 In the project directory, you can run:
