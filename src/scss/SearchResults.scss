@@ -29,6 +29,12 @@
   }
 }
 
+.cars-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .message-box {
   margin-top: 3rem;
   display: flex;

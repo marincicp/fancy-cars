@@ -29,7 +29,7 @@ function SearchResults() {
           </option>
         </select>
       </div>
-      <div>
+      <div className="cars-div">
         {carData.length === 0 ? (
           <div className="message-box">
             <p>

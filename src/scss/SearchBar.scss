@@ -12,6 +12,18 @@
     border: none;
     box-shadow: 0 1px 10px 2px rgba(0, 0, 0, 0.2);
 
+    @media only screen and (max-width: 53rem) {
+      width: 50%;
+    }
+
+    @media only screen and (max-width: 45.6rem) {
+      width: 60%;
+    }
+
+    @media only screen and (max-width: 32.5rem) {
+      width: 80%;
+    }
+
     &:focus {
       outline: none;
     }

@@ -1,8 +1,6 @@
 import "../scss/Button.scss";
 import { observer } from "mobx-react";
 
-import store from "../store";
-
 function Button({ text, onChangePage, float }) {
   const onHandleClick = () => {
     onChangePage();

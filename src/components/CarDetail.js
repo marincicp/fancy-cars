@@ -49,7 +49,7 @@ function CarDetail() {
           </div>
 
           <div className="car-info_right">
-            <button
+            {/* <button
               className="save-btn"
               onClick={() => {
                 // if (!car.saved) {
@@ -65,7 +65,7 @@ function CarDetail() {
               <ion-icon
                 name={`bookmark${car.saved ? "" : "-outline"}`}
               ></ion-icon>
-            </button>
+            </button> */}
           </div>
         </div>
         <div className="car-info-description">
