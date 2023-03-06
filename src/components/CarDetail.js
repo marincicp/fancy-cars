@@ -1,16 +1,17 @@
 import "../scss/CarDetail.scss";
 import { useState } from "react";
 import { observer } from "mobx-react";
-import store from "../store";
 import CommentItem from "./CommentItem";
+import { useStores } from "../context/RootStoreContext";
 
 function CarDetail() {
   const [autor, setAutor] = useState("");
   const [commentContent, setCommentContent] = useState("");
-  let car = store.selectedCar;
-  let coms = store.allComments;
+  const { carsStore, commentsStore } = useStores();
+  const { selectedCar } = carsStore;
+  const { allComments } = commentsStore;
 
-  if (Object.keys(store.selectedCar).length === 0) {
+  if (Object.keys(selectedCar).length === 0) {
     return (
       <div className="started-message">
         <p>Find and select a nice car !</p>
@@ -22,7 +23,7 @@ function CarDetail() {
     <div className="car-detail">
       <div className="car-detail-box_info">
         <div className="car-image-box">
-          <img className="car-image" src={car.img} alt="car" />
+          <img className="car-image" src={selectedCar.img} alt="car" />
         </div>
         <div className="car-info">
           <div className="car-info_left">
@@ -31,20 +32,20 @@ function CarDetail() {
                 <ion-icon name="car-sport-outline"></ion-icon>
               </span>
               <span className="car-text">
-                {car.make} {car.model}
+                {selectedCar.make} {selectedCar.model}
               </span>
             </div>
             <div className="car">
               <span className="car-icon">
                 <ion-icon name="build-outline"></ion-icon>
               </span>
-              <span className="car-text">{car.year} </span>
+              <span className="car-text">{selectedCar.year} </span>
             </div>
             <div className="car">
               <span className="car-icon">
                 <ion-icon name="cash-outline"></ion-icon>
               </span>
-              <span className="car-text">{car.price} $</span>
+              <span className="car-text">{selectedCar.price} $</span>
             </div>
           </div>
 
@@ -74,7 +75,7 @@ function CarDetail() {
 
             <h4>More about car:</h4>
           </div>
-          <div className="description-text">{car.description}</div>
+          <div className="description-text">{selectedCar.description}</div>
         </div>
       </div>
 
@@ -89,7 +90,11 @@ function CarDetail() {
           onSubmit={(e) => {
             e.preventDefault();
             if (autor.length > 0 && commentContent.length > 0) {
-              store.createComment(car.id, autor, commentContent);
+              commentsStore.createComment(
+                selectedCar.id,
+                autor,
+                commentContent
+              );
               setAutor("");
               setCommentContent("");
             }
@@ -110,9 +115,9 @@ function CarDetail() {
           <button>Post</button>
         </form>
         <div className="all-comments">
-          {coms !== undefined
-            ? coms.map((com) => {
-                if (com.car_id === car.id) {
+          {allComments !== undefined
+            ? allComments.map((com) => {
+                if (com.car_id === selectedCar.id) {
                   return <CommentItem key={com.comment_id} comment={com} />;
                 }
               })

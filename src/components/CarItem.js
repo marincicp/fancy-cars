@@ -1,12 +1,16 @@
 import "../scss/CarItem.scss";
-import store from "../store";
 import { observer } from "mobx-react";
+import { useStores } from "../context/RootStoreContext";
 
 function CarItem({ car }) {
+  const { carsStore } = useStores();
+
   return (
     <div
-      className={`car-item ${car.id === store.selectedCar.id ? "active" : ""}`}
-      onClick={() => store.setSelectedCar(car)}
+      className={`car-item ${
+        car.id === carsStore.selectedCar?.id ? "active" : ""
+      }`}
+      onClick={() => carsStore.setSelectedCar(car)}
     >
       <div className="car-item_image">
         <img className="car-image" src={car.img} alt="car" />

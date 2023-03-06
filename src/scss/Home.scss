@@ -1,0 +1,24 @@
+.home {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+}
+.home-left-side {
+  display: grid;
+  grid-template-rows: 7rem 1fr 7rem;
+  grid-column: 1/2;
+
+  @media only screen and (max-width: 53.1rem) {
+    height: fit-content;
+    width: 100%;
+  }
+}
+.home-right-side {
+  grid-column: 2/3;
+  @media only screen and (max-width: 53.1rem) {
+    grid-row: 3/4;
+    width: 100%;
+  }
+}

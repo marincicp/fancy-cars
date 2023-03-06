@@ -1,0 +1,68 @@
+.about-carofweek {
+  h4 {
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.box {
+  width: 90rem;
+  position: relative;
+}
+.slider {
+  border-radius: 0.5rem;
+  // background-color: #ddd;
+  background-color: #fff29d;
+  border: 2px solid #fff29d;
+  width: 90rem;
+  height: 10rem;
+
+  overflow-x: scroll;
+  display: flex;
+
+  gap: 5rem;
+  scroll-behavior: smooth;
+  padding: 0.5rem;
+}
+
+.slider-btn {
+  z-index: 20;
+  border-radius: 500%;
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(0, -50%);
+  position: absolute;
+  cursor: pointer;
+  background-color: #ff2525;
+  color: #fff;
+  font-size: 3rem;
+  transition: all 0.4;
+
+  &:hover {
+    background-color: #e62121;
+  }
+}
+
+.left-btn {
+  top: 50%;
+  left: -2rem;
+}
+
+.right-btn {
+  top: 50%;
+
+  z-index: 20;
+  right: -2rem;
+}
+
+.slider-parent {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

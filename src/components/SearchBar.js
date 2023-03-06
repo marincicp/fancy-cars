@@ -1,17 +1,18 @@
 import "../scss/SearchBar.scss";
 import { observer } from "mobx-react";
-
-import store from "../store";
+import { useStores } from "../context/RootStoreContext";
 
 function SearchBar() {
+  const { carsStore } = useStores();
+
   return (
     <div className="search-bar">
       <input
-        value={store.query}
+        value={carsStore.query}
         placeholder="Search for car..."
         onChange={(e) => {
-          store.setSearchQuery(e.target.value);
-          store.searchOnQuery(e.target.value);
+          carsStore.setSearchQuery(e.target.value);
+          carsStore.searchOnQuery(e.target.value);
         }}
       />
     </div>

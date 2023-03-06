@@ -1,17 +1,17 @@
 import "../scss/Button.scss";
 import { observer } from "mobx-react";
 
-function Button({ text, onChangePage, float }) {
+function Button({ text, float, nextPage, prevPage }) {
   const onHandleClick = () => {
-    onChangePage();
+    if (float === "right") {
+      return nextPage();
+    } else {
+      return prevPage();
+    }
   };
 
   return (
-    <button
-      style={{ float: `${float}` }}
-      onClick={onHandleClick}
-      className="button"
-    >
+    <button onClick={onHandleClick} className={`button ${float}`}>
       {float === "left" ? (
         <>
           {" "}

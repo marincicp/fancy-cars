@@ -1,21 +1,21 @@
 import "../scss/SearchResults.scss";
-import store from "../store";
 import { observer } from "mobx-react";
 import CarItem from "./CarItem";
+import { useStores } from "../context/RootStoreContext";
 
 function SearchResults() {
+  const { carsStore } = useStores();
+
   let carData = [];
-
-  carData = store.renderCars();
-
+  carData = carsStore.renderCars();
   return (
     <div className="search-results">
       <div className="sort-box">
         <label>Sort by</label>
         <select
           onChange={(e) => {
-            store.setSortQuery(e.target.value);
-            store.setPage(1);
+            carsStore.setSortQuery(e.target.value);
+            carsStore.setPage(1);
           }}
         >
           <option value="All" key={"All"}>
