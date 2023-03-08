@@ -26,9 +26,10 @@ $bp-smallest: 31.25em; // 500px
     width: 100vw;
   }
   @media only screen and (max-width: 53.1rem) {
-    grid-template-columns: 1fr;
-    grid-template-rows: 10rem auto 1fr;
+    // grid-template-columns: 1fr;
+    // grid-template-rows: 10rem auto 1fr;
     overflow: scroll;
+    height: 90%;
   }
 
   // .top {
@@ -128,4 +129,6 @@ $bp-smallest: 31.25em; // 500px
 
 .main {
   width: 100%;
+  overflow-x: hidden;
+  // overflow-y: scroll;
 }

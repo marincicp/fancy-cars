@@ -69,7 +69,7 @@ function CarOfWeek() {
           <div className="description-text">{carOfWeek.description}</div>
         </div>
       </div>
-      <div>
+      <div className="down-part">
         <div className="about-carofweek">
           <h4>What others say about car of the week :</h4>
         </div>

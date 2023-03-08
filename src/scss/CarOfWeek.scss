@@ -8,6 +8,14 @@
 .box {
   width: 90rem;
   position: relative;
+
+  @media only screen and (max-width: 58.4rem) {
+    width: 90%;
+  }
+
+  @media only screen and (max-width: 20rem) {
+    width: 80%;
+  }
 }
 .slider {
   border-radius: 0.5rem;
@@ -23,6 +31,9 @@
   gap: 5rem;
   scroll-behavior: smooth;
   padding: 0.5rem;
+  @media only screen and (max-width: 58.4rem) {
+    width: 100%;
+  }
 }
 
 .slider-btn {
@@ -65,4 +76,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.down-part {
+  margin-top: 7rem;
 }
