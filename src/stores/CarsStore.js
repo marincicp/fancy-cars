@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, runInAction } from "mobx";
 import { RES_PER_PAGE } from "../config/config";
 import { fetchAllCars, fetchCarOFWeek, fetchSearchResults } from "../apis/api";
 
@@ -31,7 +31,9 @@ export class CarsStore {
     try {
       const data = await fetchCarOFWeek();
 
-      return this.setCarOfWeek(data[0]);
+      runInAction(() => {
+        this.setCarOfWeek(data[0]);
+      });
     } catch (err) {
       console.error(err);
     }
@@ -53,7 +55,10 @@ export class CarsStore {
     try {
       const data = await fetchAllCars();
       // this.carsData = data;
-      this.setCars(data);
+
+      runInAction(() => {
+        this.setCars(data);
+      });
     } catch (err) {
       console.error(err);
     }
@@ -68,22 +73,23 @@ export class CarsStore {
 
     let start = (page - 1) * RES_PER_PAGE;
     let end = page * RES_PER_PAGE;
+    runInAction(() => {
+      if (this.sortQuery === "Year") {
+        return this.carsData
+          .slice()
+          .sort((a, b) => b.year - a.year)
+          .slice(start, end);
+      }
 
-    if (this.sortQuery === "Year") {
-      return this.carsData
-        .slice()
-        .sort((a, b) => b.year - a.year)
-        .slice(start, end);
-    }
+      if (this.sortQuery === "Price") {
+        return this.carsData
+          .slice()
+          .sort((a, b) => b.price - a.price)
+          .slice(start, end);
+      }
 
-    if (this.sortQuery === "Price") {
-      return this.carsData
-        .slice()
-        .sort((a, b) => b.price - a.price)
-        .slice(start, end);
-    }
-
-    return this.carsData.slice(start, end);
+      return this.carsData.slice(start, end);
+    });
   }
 
   setSearchQuery(query) {
@@ -108,7 +114,9 @@ export class CarsStore {
       // this.page = 1;
       this.setPage(1);
       const data = await fetchSearchResults(query);
-      this.setCars(data);
+      runInAction(() => {
+        this.setCars(data);
+      });
     } catch (err) {
       console.error(err);
     }

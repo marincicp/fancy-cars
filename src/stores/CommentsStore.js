@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, runInAction } from "mobx";
 import { fetchAllComments, postComment } from "../apis/api";
 
 export class CommentsStore {
@@ -12,7 +12,10 @@ export class CommentsStore {
   async getAllComments() {
     try {
       const data = await fetchAllComments();
-      return this.setComments(data);
+
+      runInAction(() => {
+        return this.setComments(data);
+      });
     } catch (err) {
       console.error(err);
     }
@@ -31,8 +34,11 @@ export class CommentsStore {
       };
 
       const data = await postComment(commentData);
-      this.allComments.unshift(data);
-      return data;
+      runInAction(() => {
+        this.allComments.unshift(data);
+
+        return data;
+      });
     } catch (err) {
       console.error(err);
     }
